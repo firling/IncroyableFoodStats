@@ -55,6 +55,11 @@ export default class Home extends React.Component {
     }
   }
 
+  _displayDetailForFilm = (idFilm) => {
+    console.log("Display film with id " + idFilm)
+    this.props.navigation.navigate("Detail", {idFilm})
+  }
+
   render() {
     return (
       <View style={styles.main_container}>
@@ -68,7 +73,7 @@ export default class Home extends React.Component {
           <FlatList
             data={this.state.films}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({item}) => <FilmItem film={item}/>}
+            renderItem={({item}) => <FilmItem film={item} displayDetailForFilm={this._displayDetailForFilm} />}
             onEndReachedThreshold={0.5}
             onEndReached={() => {
               if (this.page < this.totalPages) {
@@ -84,8 +89,7 @@ export default class Home extends React.Component {
 
 const styles = StyleSheet.create({
   main_container: {
-    flex: 1,
-    marginTop: 20
+    flex: 1
   },
   textinput: {
     marginLeft: 5,
