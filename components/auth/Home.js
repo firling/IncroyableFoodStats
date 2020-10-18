@@ -13,10 +13,10 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <Background>
-        <Header>Login Template</Header>
+        <Header>Incroyable Food Stats</Header>
     
         <Paragraph>
-          The easiest way to start with your amazing application.
+          La MEILLEUR Application Pour te rappeler de ce que tu as MANGé
         </Paragraph>
         <Button mode="contained" onPress={() => this.props.navigation.navigate('LoginScreen')}>
           Login

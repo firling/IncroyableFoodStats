@@ -85,7 +85,7 @@ export default class LoginScreen extends React.Component {
       <Background>
         <BackButton goBack={() => this.props.navigation.navigate('HomeScreen')} />
 
-        <Header>Welcome back.</Header>
+        <Header>Incroyable Food Stats</Header>
 
         <TextInput
           label="Email"
