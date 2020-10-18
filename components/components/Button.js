@@ -1,16 +1,33 @@
 import React, { memo } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Button as PaperButton } from 'react-native-paper';
 import { theme } from '../core/theme';
 
-const Header = ({ children }) => <Text style={styles.header}>{children}</Text>;
+const Button = ({ mode, style, children, ...props }) => (
+  <PaperButton
+    style={[
+      styles.button,
+      mode === 'outlined' && { backgroundColor: theme.colors.surface },
+      style,
+    ]}
+    labelStyle={styles.text}
+    mode={mode}
+    {...props}
+  >
+    {children}
+  </PaperButton>
+);
 
 const styles = StyleSheet.create({
-  header: {
-    fontSize: 26,
-    color: theme.colors.primary,
+  button: {
+    width: '100%',
+    marginVertical: 10,
+  },
+  text: {
     fontWeight: 'bold',
-    paddingVertical: 14,
+    fontSize: 15,
+    lineHeight: 26,
   },
 });
 
-export default memo(Header);
+export default memo(Button);
