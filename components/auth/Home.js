@@ -10,6 +10,10 @@ export default class HomeScreen extends React.Component {
     super(props)
   }
 
+  static navigationOptions = {
+    drawerLabel: () => null
+  }
+
   render() {
     return (
       <Background>
