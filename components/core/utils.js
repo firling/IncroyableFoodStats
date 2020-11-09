@@ -18,3 +18,4 @@ export const nameValidator = name => {
   
     return '';
 };
+
