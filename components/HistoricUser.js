@@ -15,10 +15,13 @@ export default function HistoricUser({route: {params: {user}}, navigation: {navi
   }, []);
 
   const getHistoric = () => {
-    axios.get(`${config.url_serv}/getSpecificUserHistoric?userId=${user.id}`)
+    AsyncStorage.getItem(config.STORAGE_KEY)
+    .then(token => {
+      axios.get(`${config.url_serv}/getSpecificUserHistoric?userId=${user.id}&token=${token}`)
         .then(res => {
             setHistoric(res.data.data)
         })
+    })
   }
 
   return (
