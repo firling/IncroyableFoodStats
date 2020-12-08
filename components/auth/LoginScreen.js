@@ -32,13 +32,12 @@ export default function LoginScreen({ navigation: { navigate } }) {
             signIn(res.data.token)
           }
         }).catch((err) => {
-          console.log(err)
-          // Toast.show({
-          //   type: 'error',
-          //   text1: 'Error',
-          //   text2: `${err.response.data.error}`,
-          //   visibilityTime: 4000,
-          // });
+          Toast.show({
+            type: 'error',
+            text1: 'Error',
+            text2: `${err.response.data.error}`,
+            visibilityTime: 4000,
+          });
         })
       }
 
