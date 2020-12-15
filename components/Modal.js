@@ -32,9 +32,6 @@ const App = ({visible, setModalVisible, profile, navigate, visitable, autorise})
         animationType="slide"
         transparent={true}
         visible={visible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-        }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>

@@ -9,7 +9,7 @@ export default function Profile() {
   const { signOut } = React.useContext(AuthContext);
   return (
     <Background>
-      <Header>Ton Profile</Header>
+      <Header>Ton Profil</Header>
       <Button onPress={() => signOut()}>
         Log out
       </Button>

@@ -37,7 +37,7 @@ export default function Home({navigation: {navigate}}) {
         })}>
           Scan
         </Button>
-        <FlatList
+        <FlatList 
           data={historic}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({item}) => <HistoricItem item={item}/>}

@@ -33,7 +33,19 @@ export default function ScanBarCode({route, navigation: {navigate}}) {
     var name = product.data.product.product_name
     var id = data
     var img = product.data.product.selected_images.front.display.fr
-    //alert(`Product ${product.data.product.product_name}!`);
+
+    var ingredients_text_fr = product.data.product.ingredients_text_fr
+    var nutrient_sugars = product.data.product.nutrient_levels.sugars
+    var nutrient_fat = product.data.product.nutrient_levels.fat
+    var nutrient_saturated_fat = product.data.product.nutrient_levels["saturated-fat"]
+    var nutrient_salt = product.data.product.nutrient_levels.salt
+    var nutrition_grade_fr = product.data.product.nutrition_grade_fr
+    var nutrition_score_fr = product.data.product.nutriscore_score
+    var energy_kcal = product.data.product.nutriments["energy-kcal"]
+    var energy_kcal_100g = product.data.product.nutriments["energy-kcal_100g"]
+    var quantity = product.data.product.quantity
+
+
     Alert.alert(
       "Product Found!",
       `Voulez-vous enregistrer le produit ${product.data.product.product_name}?`,
@@ -49,7 +61,18 @@ export default function ScanBarCode({route, navigation: {navigate}}) {
               token: userToken,
               aliment: name,
               idAliment: id,
-              urlAliment: img
+              urlAliment: img,
+
+              ingredients_text_fr,
+              nutrient_sugars,
+              nutrient_fat,
+              nutrient_saturated_fat,
+              nutrient_salt,
+              nutrition_grade_fr,
+              nutrition_score_fr,
+              energy_kcal,
+              energy_kcal_100g,
+              quantity
             }).then(res => {
               Toast.show({
                 type: 'success',

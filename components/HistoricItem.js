@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, ScrollView, Image, View, TouchableOpacity  } from 'react-native'
 import moment from 'moment'
+import DetailHistoric from './DetailHistoric';
 
 export default function HistoricItem({item}) {
+    const [modalVisible, setModalVisible] = useState(false);
+
     return (
-      <TouchableOpacity style={styles.main_container} onPress={() => console.log("a")}>
+      <TouchableOpacity style={styles.main_container} onPress={() => setModalVisible(true)}>
         <Image
           style={styles.image}
           source={{uri: item.urlAliment}}
@@ -17,6 +20,9 @@ export default function HistoricItem({item}) {
               <Text style={styles.date_text}>Le {moment(new Date(item.date)).format('DD/MM/YYYY')}</Text>
             </View>
         </View>
+        {
+          modalVisible ? <DetailHistoric nomAliment={item.aliment} idDetail={item.id} setModalVisible={(val) => setModalVisible(val)}/> : null
+        }
       </TouchableOpacity>
     )
 }
